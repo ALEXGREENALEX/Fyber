@@ -14,7 +14,7 @@
     "androidProps": true,
     "androidactivityinject": "",
     "androidclassname": "fyber",
-    "androidinject": "<activity android:name=\"com.fyber.ads.videos.RewardedVideoActivity\"\\u000a   android:configChanges=\"screenSize|orientation\"\\u000a   android:hardwareAccelerated=\"true\"\/>",
+    "androidinject": "<activity android:name=\"com.fyber.ads.videos.RewardedVideoActivity\"\\u000d   android:configChanges=\"screenSize|orientation\"\\u000d   android:hardwareAccelerated=\"true\"\/>",
     "androidmanifestinject": "",
     "androidsourcedir": "",
     "author": "",

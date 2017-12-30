@@ -400,6 +400,25 @@
             }
         },
         {
+            "Key": "dd8c96b8-5c5b-46bb-b2a5-5b2450044ad9",
+            "Value": {
+                "id": "1893d528-dc46-4ef1-9498-d0b5a948e02e",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "extensions\/GooglePlayServicesExtension\/GooglePlayServicesExtension.yy",
+                "resourceType": "GMExtension"
+            }
+        },
+        {
             "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
             "Value": {
                 "id": "b1041e62-b689-4fbf-96d8-712bd1a2ef9f",
