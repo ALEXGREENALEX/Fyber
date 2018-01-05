@@ -1,2 +1,1 @@
-//fyber_show_ad();
-fyber_show();
+fyber_ad_request();

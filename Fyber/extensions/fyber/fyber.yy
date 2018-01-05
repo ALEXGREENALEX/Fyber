@@ -14,7 +14,7 @@
     "androidProps": true,
     "androidactivityinject": "",
     "androidclassname": "fyber",
-    "androidinject": "<activity android:name=\"com.fyber.ads.videos.RewardedVideoActivity\"\\u000d   android:configChanges=\"screenSize|orientation\"\\u000d   android:hardwareAccelerated=\"true\"\/>",
+    "androidinject": "<activity android:name=\"com.fyber.ads.videos.RewardedVideoActivity\"\\u000a   android:configChanges=\"screenSize|orientation\"\\u000a   android:hardwareAccelerated=\"true\"\/>",
     "androidmanifestinject": "",
     "androidsourcedir": "",
     "author": "",
@@ -55,18 +55,33 @@
                     "returnType": 2
                 },
                 {
-                    "id": "5b1f6cf2-853f-494a-b463-82034fd1147e",
+                    "id": "0fcce898-e3ed-41cd-8b7f-3a930942f9d8",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
                     "args": [
                         
                     ],
-                    "externalName": "fyber_show",
+                    "externalName": "fyber_ad_request",
                     "help": "",
                     "hidden": false,
                     "kind": 4,
-                    "name": "fyber_show",
+                    "name": "fyber_ad_request",
+                    "returnType": 1
+                },
+                {
+                    "id": "e450a16b-c8d9-4a3a-b021-a4835dc13987",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "fyber_ad_show",
+                    "help": "",
+                    "hidden": false,
+                    "kind": 4,
+                    "name": "fyber_ad_show",
                     "returnType": 1
                 }
             ],
@@ -74,7 +89,8 @@
             "kind": 4,
             "order": [
                 "efd9a3a5-cd6a-45fb-a0d3-c8cf56d18a90",
-                "5b1f6cf2-853f-494a-b463-82034fd1147e"
+                "0fcce898-e3ed-41cd-8b7f-3a930942f9d8",
+                "e450a16b-c8d9-4a3a-b021-a4835dc13987"
             ],
             "origname": "",
             "uncompress": false

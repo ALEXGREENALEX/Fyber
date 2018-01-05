@@ -1,13 +1,12 @@
 package ${YYAndroidPackageName};
 
+import ${YYAndroidPackageName}.RunnerActivity;
 import ${YYAndroidPackageName}.R;
 import com.yoyogames.runner.RunnerJNILib;
-import ${YYAndroidPackageName}.RunnerActivity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.app.Activity;
 
 import java.lang.String;
 
@@ -18,21 +17,32 @@ import com.fyber.requesters.RequestCallback;
 import com.fyber.requesters.RequestError;
 import com.fyber.requesters.RewardedVideoRequester;
 
-public class fyber extends Fragment implements RequestCallback {
+public class fyber extends RunnerSocial implements RequestCallback {
 
     private static final int REWARDED_VIDEO_REQUEST_CODE = 8796;
     private static final int EVENT_OTHER_SOCIAL = 70;
+
     private Intent intent;
-    private boolean isRequestingState;
 
     /* GMS func */ 
 
     public void fyber_init(String app_id, String security_token) {
-        Fyber.with(app_id, RunnerActivity.CurrentActivity).withSecurityToken(security_token).start();
+        Fyber.Settings settings = Fyber
+                        .with(app_id, RunnerActivity.CurrentActivity)
+                        .withSecurityToken(security_token)
+                        .start();
+        settings.notifyUserOnCompletion(false);
     }
 
-    public void fyber_show() {
+    public void fyber_ad_request() {
+        resetIntent();
         requestVideo();
+    }
+
+    public void fyber_ad_show() {
+        if (isIntentAvailable()) {
+            showVideo();
+        }
     }
 
     /* Ad func */
@@ -42,86 +52,63 @@ public class fyber extends Fragment implements RequestCallback {
     }
 
     private void showVideo() {
-        createDsMap("rewarded_video", "shown");
+        sendSocialEvent("ad_shown");
         RunnerActivity.CurrentActivity.startActivityForResult(intent, REWARDED_VIDEO_REQUEST_CODE);
     }
-    /* Создать свое активити и использовать его во всех функциях */
+
     /* RequestCallback methods */
 
     @Override
     public void onAdAvailable(Intent intent) { 
-        // Video loaded (after requestVideo())
-        createDsMap("rewarded_video", "loaded");
+        sendSocialEvent("ad_available");
         this.intent = intent;
-        showVideo();
     }
 
     @Override
     public void onAdNotAvailable(AdFormat adFormat) { 
-        Log.i("yoyo", "onAdNotAvailable!!!!!!!!");
-        createDsMap("rewarded_video", "notAvaible");
-        resetRequestingState();
+        sendSocialEvent("ad_not_available");
         resetIntent();
     }
 
     @Override
     public void onRequestError(RequestError requestError) { 
-        Log.i("yoyo", "!RequestError" + requestError.getDescription() + "!!!!!!!!");
-        createDsMap("rewarded_video", "failed");
-        resetRequestingState();
+        sendSocialEvent("ad_request_error");
         resetIntent();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    	Log.i("yoyo", "Got activity result: " + resultCode);
-        Log.i("yoyo", "Got activity requestCode: " + String.valueOf(requestCode));
-        Log.i("yoyo", "Got activity data: " +  String.valueOf(data));
-        
-        
-		/*if ((mRunnerBilling==null) || (!mRunnerBilling.handleActivityResult(requestCode, resultCode, data))) {
-		
-			super.onActivityResult(requestCode, resultCode, data);
-			
-			if(RunnerActivity.mExtension!=null)
-			{
-				for(int i=0;i<RunnerActivity.mExtension.length;i++)
-  				{	 
-					if(RunnerActivity.mExtension[i] instanceof IExtensionBase)
-						((IExtensionBase)RunnerActivity.mExtension[i]).onActivityResult(requestCode,resultCode,data);
-				}
-			}
-			
-		}*/
+	@Override
+	public void onActivityResult(int requestCode, int responseCode, Intent intent) {
+        if (responseCode == Activity.RESULT_OK && requestCode == REWARDED_VIDEO_REQUEST_CODE) {
+            String engagementResult = intent.getStringExtra(RewardedVideoActivity.ENGAGEMENT_STATUS);
+            switch (engagementResult) {
+                case RewardedVideoActivity.REQUEST_STATUS_PARAMETER_FINISHED_VALUE: 
+                    sendSocialEvent("ad_reward_finish"); 
+                break;
 
-		Log.i("yoyo", "End Got activity result!");
-		
-		
-		
-    } 
+                case RewardedVideoActivity.REQUEST_STATUS_PARAMETER_ABORTED_VALUE:  
+                    sendSocialEvent("ad_reward_close");  
+                break;
+
+                case RewardedVideoActivity.REQUEST_STATUS_PARAMETER_ERROR:          
+                    sendSocialEvent("ad_reward_error");  
+                break;
+            }
+        }
+    }
 
     /* Helper methods */
-
-    private void resetRequestingState() {
-        isRequestingState = false;
-    }
 
     private void resetIntent() {
         intent = null;
     }
 
-    private boolean isIntentAvailable() {
-        return intent != null;
+    protected boolean isIntentAvailable() {
+		return intent != null;
     }
-
-    private boolean isRequestingState() {
-        return isRequestingState;
-    }
-
-    private void createDsMap(String Arg0, String Arg1){
-        int dsmapindex = RunnerJNILib.jCreateDsMap(null,null,null);
-        RunnerJNILib.DsMapAddString(dsmapindex,Arg0,Arg1 );
-        RunnerJNILib.CreateAsynEventWithDSMap(dsmapindex,EVENT_OTHER_SOCIAL);
-    }
+    
+    public void sendSocialEvent(String value) {
+		int dsMapIndex = RunnerJNILib.jCreateDsMap(null, null, null);
+		RunnerJNILib.DsMapAddString(dsMapIndex, "fyber_callback", value);
+		RunnerJNILib.CreateAsynEventWithDSMap(dsMapIndex, EVENT_OTHER_SOCIAL);
+	}
 }
