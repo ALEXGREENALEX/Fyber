@@ -16,7 +16,9 @@ import com.fyber.ads.videos.RewardedVideoActivity;
 import com.fyber.requesters.RequestCallback;
 import com.fyber.requesters.RequestError;
 import com.fyber.requesters.RewardedVideoRequester;
+import com.fyber.annotations.FyberSDK;
 
+@FyberSDK
 public class fyber extends RunnerSocial implements RequestCallback {
 
     private static final int REWARDED_VIDEO_REQUEST_CODE = 8796;

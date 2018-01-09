@@ -115,6 +115,25 @@
             }
         },
         {
+            "Key": "59432404-231c-45b5-b51e-83a093847c17",
+            "Value": {
+                "id": "be3501ec-a277-479d-90e0-5062be5a1fda",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "extensions\/GooglePlayServicesIAPExtension\/GooglePlayServicesIAPExtension.yy",
+                "resourceType": "GMExtension"
+            }
+        },
+        {
             "Key": "60270e98-4fc7-4459-a454-d4149786f268",
             "Value": {
                 "id": "b83bc328-444d-49cf-b9f5-27cc15454ead",
@@ -473,6 +492,25 @@
                 ],
                 "resourcePath": "options\/mac\/options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "fc2b0ea7-e053-4650-9837-5dc0a4eacc5d",
+            "Value": {
+                "id": "c93ee470-ce3d-4aa4-9fcc-e4a43749c9e4",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "extensions\/GooglePlayServicesExtension\/GooglePlayServicesExtension.yy",
+                "resourceType": "GMExtension"
             }
         },
         {
