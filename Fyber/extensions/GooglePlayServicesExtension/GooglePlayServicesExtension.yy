@@ -12,12 +12,12 @@
     "androidProps": true,
     "androidactivityinject": "",
     "androidclassname": "GooglePlayServicesExtension",
-    "androidinject": "<meta-data android:name=\"com.google.android.gms.version\"  android:value=\"9683000\"  tools:replace=\"android:value\" \/>\\u000a<activity android:name=\"com.google.android.gms.ads.AdActivity\" android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" \/>",
+    "androidinject": "<meta-data android:name=\"com.google.android.gms.version\"  android:value=\"9683000\"  tools:replace=\"android:value\" \/>\\u000d<activity android:name=\"com.google.android.gms.ads.AdActivity\" android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" \/>",
     "androidmanifestinject": "",
     "androidsourcedir": "",
     "author": "",
     "classname": "GoogleMobileAdsExt",
-    "copyToTargets": 703687477428236,
+    "copyToTargets": 562949953421320,
     "date": "2018-01-06 12:01:35",
     "description": "",
     "extensionName": "",
@@ -356,10 +356,10 @@
             "uncompress": false
         }
     ],
-    "gradleinject": "\/\/ compile 'com.google.android.gms:play-services-games:9.6.1'\\u000a\/\/ compile 'com.google.android.gms:play-services-ads:9.6.1'\\u000a\/\/ compile 'com.google.android.gms:play-services-plus:9.6.1'\\u000a\/\/ compile 'com.google.android.gms:play-services-gcm:9.6.1'",
+    "gradleinject": "\/\/compile 'com.google.android.gms:play-services-games:9.6.1'\\u000a\/\/compile 'com.google.android.gms:play-services-ads:9.6.1'\\u000a\/\/compile 'com.google.android.gms:play-services-plus:9.6.1'\\u000a\/\/compile 'com.google.android.gms:play-services-gcm:9.6.1'",
     "helpfile": "",
     "installdir": "",
-    "iosProps": true,
+    "iosProps": false,
     "iosSystemFrameworkEntries": [
         {
             "id": "fe7bccce-3ff4-4054-91d6-ca5093721cb9",
@@ -420,7 +420,7 @@
             "weakReference": false
         }
     ],
-    "iosplistinject": "<key>NSAppTransportSecurity<\/key>\\u000d\\u000a<dict>\\u000d\\u000a    <key>NSAllowsArbitraryLoads<\/key>\\u000d\\u000a    <true\/>\\u000d\\u000a    <key>NSAllowsArbitraryLoadsForMedia<\/key>\\u000d\\u000a    <true\/>\\u000d\\u000a    <key>NSAllowsArbitraryLoadsInWebContent<\/key>\\u000d\\u000a    <true\/>\\u000d\\u000a<\/dict>",
+    "iosplistinject": "<key>NSAppTransportSecurity<\/key>\\u000a\\u000d<dict>\\u000a\\u000d    <key>NSAllowsArbitraryLoads<\/key>\\u000a\\u000d    <true\/>\\u000a\\u000d    <key>NSAllowsArbitraryLoadsForMedia<\/key>\\u000a\\u000d    <true\/>\\u000a\\u000d    <key>NSAllowsArbitraryLoadsInWebContent<\/key>\\u000a\\u000d    <true\/>\\u000a\\u000d<\/dict>",
     "license": "Free to use, also for commercial games.",
     "maccompilerflags": "",
     "maclinkerflags": "",

@@ -1,4 +1,4 @@
-fyber_init("22915", "token");
+fyber_init("", "");
 
 /*
 Work:

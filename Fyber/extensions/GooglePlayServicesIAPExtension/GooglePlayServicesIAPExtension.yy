@@ -17,7 +17,7 @@
     "androidsourcedir": "",
     "author": "",
     "classname": "",
-    "copyToTargets": 834777342120174,
+    "copyToTargets": 598172980216042,
     "date": "2018-57-05 11:01:02",
     "description": "",
     "extensionName": "",
@@ -50,7 +50,7 @@
     "gradleinject": "",
     "helpfile": "",
     "installdir": "",
-    "iosProps": true,
+    "iosProps": false,
     "iosSystemFrameworkEntries": [
         
     ],
